@@ -2,7 +2,7 @@ import json
 from src.utils.constants import CalculationValues
 from src.utils.constants import Violations
 
-class CreditTransaction():
+class CreditTransactions():
 
     def __init__(self):
         self.constant = CalculationValues()
@@ -11,7 +11,7 @@ class CreditTransaction():
     def transport_trasaction(self, data):
         data = json.loads(data)
         violations = [self._transport_transaction(data), self._income_validation(data), self._score_validation(data)]
-        return {"transaction": {"id":data["transaction"]["id"], "violations":violations}}
+        return {"id":data["transaction"]["id"], "violations":violations}
 
     def _income_validation(self,data):
         quota = int(data["transaction"]["requested_value"]) / int(data["transaction"]["installments"])
