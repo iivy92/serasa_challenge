@@ -1,23 +1,30 @@
 import json
+from src.utils.constants import CalculationValues
+from src.utils.constants import Violations
 
 class CreditTransaction():
 
     def __init__(self):
-        self.
+        self.constant = CalculationValues()
+        self.violation = Violations()
+
     
     def trasaction(self, data):
         data = json.loads(data)
 
-    #TODO: put values in constants folder
+        
     def _income_validation(self,data):
         quota = int(data["transaction"]["requested_value"]) / int(data["transaction"]["installments"])
-        committed_income = int(data["transaction"]["income"]) * 0,30
-        return quota > committed_income
+        committed_income = int(data["transaction"]["income"]) * self.constant.compromised_rate
+        if (quota > committed_income):
+            return self.violation.compromised-income
 
     def _score_validation(self,data):
-        return int(data["transaction"]["score"]) < 200 
+        if (int(data["transaction"]["score"]) < self.constant.minimum_score):
+            return self.violation.low_score  
     
     def _installments_validation(self,data):
-        return int(data["transaction"]["installments"]) < 6
+        if (int(data["transaction"]["installments"]) < self.constant.minimum_installments)):
+            return self.violation.minimum_installments
 
 
