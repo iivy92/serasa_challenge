@@ -3,5 +3,7 @@ version: "3.3"
 services:
   serasa-challenge:
     build: .
+    env_file:
+      - env.example
     ports: 
       - 8080:8080
