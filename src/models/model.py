@@ -29,6 +29,8 @@ class CreditTransactions():
                 temp.append(load)
 
         temp.append(data_file)
+        temp.sort(key = lambda x: datetime.strptime(x["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z'), reverse=True)
+        import ipdb; ipdb.set_trace()
         self._save_transaction_file(temp)       
 
     def _income_validation(self,data):
@@ -52,7 +54,7 @@ class CreditTransactions():
             for load in loads:
                 if (data["transaction"]["id"] == load["transaction"]["id"]):
                     diff = datetime.strptime(data["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z') - datetime.strptime(load["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z')
-                    if diff <= timedelta(seconds=120):
+                    if diff <= timedelta(seconds=CalculationValues.minimum_time.value):
                         return Violations.doubled_transactions.value
 
     def _read_transaction_file(self):
