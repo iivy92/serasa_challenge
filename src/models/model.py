@@ -1,29 +1,69 @@
 import json
+import os
+from datetime import datetime, timedelta
 from src.utils.constants import CalculationValues
 from src.utils.constants import Violations
 
 class CreditTransactions():
 
-    def __init__(self):
-        self.constant = CalculationValues()
-        self.violation = Violations()
+    # def __init__(self):
+    #     self.transport_trasaction()
+    #     self._income_validation()
+    #     self._score_validation()
+    #     self._installments_validation()
     
     def transport_trasaction(self, data):
-        data = json.loads(data)
-        violations = [self._transport_transaction(data), self._income_validation(data), self._score_validation(data)]
-        return {"id":data["transaction"]["id"], "violations":violations}
+        analysis = [self._income_validation(data), self._score_validation(data), self._installments_validation(data), self._double_transaction_validation(data)] 
+        violations=[]
+        for analyze in analysis:
+            if analyze:
+                violations.append(analyze)
+            
+        return {"id":data["transaction"]["id"], "violations": violations}
+    
+    def save_transaction(self, data_file):       
+        temp = []
+        loads = self._read_transaction_file()
+        if loads:
+            for load in loads:
+                temp.append(load)
+
+        temp.append(data_file)
+        self._save_transaction_file(temp)       
 
     def _income_validation(self,data):
         quota = int(data["transaction"]["requested_value"]) / int(data["transaction"]["installments"])
-        committed_income = int(data["transaction"]["income"]) * self.constant.compromised_rate
+        committed_income = int(data["transaction"]["income"]) * CalculationValues.compromised_rate.value
         if (quota > committed_income):
-            return self.violation.compromised-income
+            return Violations.compromised_income.value
 
     def _score_validation(self,data):
-        if (int(data["transaction"]["score"]) < self.constant.minimum_score):
-            return self.violation.low_score  
+        if (int(data["transaction"]["score"]) < CalculationValues.minimum_score.value):
+            return Violations.low_score.value 
     
     def _installments_validation(self,data):
-        if (int(data["transaction"]["installments"]) < self.constant.minimum_installments)):
-            return self.violation.minimum_installments
+        if (int(data["transaction"]["installments"]) < CalculationValues.minimum_installments.value):
+            return Violations.minimum_installments.value
+    
+    def _double_transaction_validation(self,data):
+        loads = self._read_transaction_file()
+        
+        if loads:        
+            for load in loads:
+                if (data["transaction"]["id"] == load["transaction"]["id"]):
+                    diff = datetime.strptime(data["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z') - datetime.strptime(load["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z')
+                    if diff <= timedelta(seconds=120):
+                        return Violations.doubled_transactions.value
 
+    def _read_transaction_file(self):
+        if os.path.exists("transaction.json"):
+            with open ("transaction.json", "r") as output_file:
+                json_data = json.loads(output_file.read())
+            
+            return json_data  
+
+    def _save_transaction_file(self, data):
+        with open ("transaction.json", "w") as output_file:
+            json.dump(data, output_file, indent=4)      
+
+credit_transactions = CreditTransactions()

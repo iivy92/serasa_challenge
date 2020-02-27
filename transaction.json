@@ -1,0 +1,178 @@
+[
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:02:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 5,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:02:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:02:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:05:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:05:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:06:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:15:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:15:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:19:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:19:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 3,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:26:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 9,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 1,
+            "time": "2019-02-13T14:26:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 9,
+            "consumer_id": 10,
+            "score": 500,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 9,
+            "time": "2019-02-13T14:26:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 9,
+            "consumer_id": 10,
+            "score": 200,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 9,
+            "time": "2019-02-13T14:26:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 8,
+            "consumer_id": 10,
+            "score": 200,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 9,
+            "time": "2019-02-13T14:30:00.000Z"
+        }
+    },
+    {
+        "transaction": {
+            "id": 8,
+            "consumer_id": 10,
+            "score": 100,
+            "income": 4000,
+            "requested_value": 10000,
+            "installments": 9,
+            "time": "2019-02-13T14:30:00.000Z"
+        }
+    }
+]

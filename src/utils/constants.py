@@ -3,7 +3,7 @@ from enum import Enum
 class CalculationValues(Enum):
     minimum_score = 200
     minimum_installments = 3
-    compromised_rate = 0,3
+    compromised_rate = 0.3
 
 class Violations(Enum):
     compromised_income = "compromised-income"
