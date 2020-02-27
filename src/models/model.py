@@ -3,11 +3,12 @@ import os
 from datetime import datetime, timedelta
 from src.utils.constants import CalculationValues
 from src.utils.constants import Violations
+from src.settings.system import SystemSettings
 
 class CreditTransactions():
 
-    # def __init__(self):
-    #     self.transport_trasaction()
+    def __init__(self):
+        self.settings = SystemSettings()
     #     self._income_validation()
     #     self._score_validation()
     #     self._installments_validation()
@@ -58,14 +59,14 @@ class CreditTransactions():
                         return Violations.doubled_transactions.value
 
     def _read_transaction_file(self):
-        if os.path.exists("transaction.json"):
-            with open ("transaction.json", "r") as output_file:
+        if os.path.exists(str(self.settings.PATH_TRANSACTIONS)):
+            with open (str(self.settings.PATH_TRANSACTIONS), "r") as output_file:
                 json_data = json.loads(output_file.read())
             
             return json_data  
 
     def _save_transaction_file(self, data):
-        with open ("transaction.json", "w") as output_file:
+        with open (str(self.settings.PATH_TRANSACTIONS), "w") as output_file:
             json.dump(data, output_file, indent=4)      
 
 credit_transactions = CreditTransactions()
