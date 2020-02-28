@@ -31,7 +31,6 @@ class CreditTransactions():
 
         temp.append(data_file)
         temp.sort(key = lambda x: datetime.strptime(x["transaction"]["time"], '%Y-%m-%dT%H:%M:%S.%f%z'), reverse=True)
-        import ipdb; ipdb.set_trace()
         self._save_transaction_file(temp)       
 
     def _income_validation(self,data):
@@ -62,11 +61,13 @@ class CreditTransactions():
         if os.path.exists(str(self.settings.PATH_TRANSACTIONS)):
             with open (str(self.settings.PATH_TRANSACTIONS), "r") as output_file:
                 json_data = json.loads(output_file.read())
+                output_file.close() 
             
             return json_data  
 
     def _save_transaction_file(self, data):
         with open (str(self.settings.PATH_TRANSACTIONS), "w") as output_file:
-            json.dump(data, output_file, indent=4)      
+            json.dump(data, output_file, indent=4)  
+            output_file.close()            
 
 credit_transactions = CreditTransactions()
