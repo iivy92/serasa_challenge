@@ -1,8 +1,8 @@
 # serasa_challenge
 
-### Como Rodar
+### How to run
 
-###### Execute os comandos abaixo:
+###### run the commands below:
 
 `$ git clone https://github.com/iivy92/serasa_challenge.git`
 
@@ -10,4 +10,4 @@
 
 `$ docker-compose up -d --build`  Para subir o serviço e executar o projeto
 
-### Documentação - [Link para acesso após subir serviço](http://localhost:5000/documentation/)
+### Documentation - [Link para acesso após subir serviço](http://localhost:5000/documentation/)
