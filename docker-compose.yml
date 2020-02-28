@@ -1,0 +1,10 @@
+version: "2"
+services:
+  serasa-challenge:
+      build: .
+      ports:
+        - "5000:5000"
+      volumes:
+        - .:/code
+      env_file:
+        - example.env
