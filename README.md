@@ -1,5 +1,10 @@
 # serasa_challenge
 
+### Application
+
+`API built using Pyhton Flask web framework, recommended to use postman to post json to be processed. Docker is required. Endpoint available on documentation` 
+
+
 ### How to run
 
 ###### run the commands below:
@@ -8,6 +13,6 @@
 
 `$ cd serasa_challenge`
 
-`$ docker-compose up -d --build`  Para subir o serviço e executar o projeto
+`$ docker-compose up -d --build`  To run the service
 
-### Documentation - [Link para acesso após subir serviço](http://localhost:5000/documentation/)
+### Documentation - [Link to acess documentation after build application](http://localhost:5000/documentation/)
