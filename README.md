@@ -15,4 +15,4 @@
 
 `$ docker-compose up -d --build`  To run the service
 
-### Documentation - [Link to acess documentation after build application](http://localhost:5000/documentation/)
+### Documentation - [acess documentation after build application](http://localhost:5000/documentation/)
